@@ -7,4 +7,5 @@ public class Canvas extends JPanel {
         this.setPreferredSize(new Dimension(700,800));
         this.setBackground(Color.BLACK);
     }
+
 }
