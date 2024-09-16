@@ -27,4 +27,15 @@ public class Complex {
     }
 
 
+    public double radius(){
+        return Math.sqrt(Math.pow(this.real,2)+Math.pow(this.imaginary,2));
+    }
+
+    public double getImaginary() {
+        return imaginary;
+    }
+
+    public double getReal() {
+        return real;
+    }
 }
