@@ -7,15 +7,15 @@ public class ComputingUnit {
     //Basic values
     final int MAX_ITERATIONS = 25;
     private final double ESCAPE_RADIUS = 2;
-    private Dimension canvasDim =new Dimension(900,600);
+    private final Dimension canvasDim =new Dimension(900,600);
 
     //X borders
-    private double minX = -2;
-    private double maxX = 1;
+    private final double minX = -2;
+    private final double maxX = 1;
 
     //Y borders
-    private double minY = -1;
-    private double maxY = 1;
+    private final double minY = -1;
+    private final double maxY = 1;
 
     //List of pixels
     private List<Pixel> pixels;

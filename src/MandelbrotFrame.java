@@ -5,6 +5,8 @@ public class MandelbrotFrame extends JFrame {
     private Canvas canvas;
     private ComputingUnit computer;
 
+
+
     public MandelbrotFrame(){
 
         //Logic

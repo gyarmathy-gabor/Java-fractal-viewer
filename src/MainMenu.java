@@ -42,15 +42,17 @@ public class MainMenu extends JFrame {
 
         playButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                setVisible(false);
                 MandelbrotFrame frame = new MandelbrotFrame();
-                dispose();
+                //dispose();
             }
         });
 
         settingsButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
+                setVisible(false);
                 Settings settings = new Settings();
-                dispose();
+                //dispose();
             }
         });
 
