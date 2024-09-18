@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.List;
 
-public class Canvas extends JPanel {
+public class CanvasPanel extends JPanel {
     int MAX_ITER;   // THIS IS TEMPORARY FUCK YOU SHOULD TAKE IT FROM MANDELBROTCALCULATOR
     public List<Pixel> pixels;
 
-    public Canvas(int iterationsMax){
+    public CanvasPanel(int iterationsMax){
         this.setPreferredSize(new Dimension(900,600));
         this.MAX_ITER = iterationsMax;
     }

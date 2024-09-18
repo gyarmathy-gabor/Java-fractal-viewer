@@ -3,10 +3,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class MainMenu extends JFrame {
+public class MenuFrame extends JFrame {
 
 
-    public MainMenu(){
+    public MenuFrame(){
         setTitle("Main Menu");
         setSize(900,650);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -51,7 +51,7 @@ public class MainMenu extends JFrame {
         settingsButton.addActionListener(new ActionListener(){
             public void actionPerformed(ActionEvent e){
                 setVisible(false);
-                Settings settings = new Settings();
+                SettingsFrame settingsFrame = new SettingsFrame();
                 //dispose();
             }
         });

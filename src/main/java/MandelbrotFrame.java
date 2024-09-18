@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.List;
 
 public class MandelbrotFrame extends JFrame {
-    private Canvas canvas;
+    private CanvasPanel canvasPanel;
     private ComputingUnit computer;
 
 
@@ -21,9 +21,9 @@ public class MandelbrotFrame extends JFrame {
         this.setLayout(null); //set the layout to manual
 
         //Adding canvas
-        this.canvas = new Canvas(computer.getMaxIterations());
-        this.add(canvas);
-        canvas.setBounds(0,50,900,600);
+        this.canvasPanel = new CanvasPanel(computer.getMaxIterations());
+        this.add(canvasPanel);
+        canvasPanel.setBounds(0,50,900,600);
 
         this.setVisible(true);
 
@@ -31,7 +31,7 @@ public class MandelbrotFrame extends JFrame {
     }
 
     public void updateCanvas(List<Pixel> pixels) {
-        canvas.setPixels(pixels);
+        canvasPanel.setPixels(pixels);
         //canvas.repaint();
     }
 }
