@@ -1,10 +1,13 @@
 
 public class Pixel {
-    private final Complex coordinate;
-    private final int outStoodIterations;
 
-    private int displayX;
-    private int displayY;
+
+    private final Complex coordinate;       //Complex coordinates
+    private final int outStoodIterations;   //Iterations outstood before shooting to infinity
+
+    //On which pixel of the screen it should be rendered on.
+    private final int displayX;
+    private final int displayY;
 
 
     Pixel(Complex c,int iter,int displayX,int displayY){

@@ -3,11 +3,12 @@ import java.util.List;
 
 public class MandelbrotFrame extends JFrame {
     private Canvas canvas;
+    private ComputingUnit computer;
 
     public MandelbrotFrame(){
 
-        //logic
-        MandelbrotCalculator computer = new MandelbrotCalculator();
+        //Logic
+        computer = new ComputingUnit();
         computer.calculateMandelbrot();
 
 

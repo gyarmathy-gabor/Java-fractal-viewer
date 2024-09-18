@@ -2,35 +2,36 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MandelbrotCalculator {
+public class ComputingUnit {
 
     //Basic values
     static final int MAX_ITERATIONS = 25;
-    static final double ESCAPE_RADIUS = 2;
-    static Dimension canvasDim =new Dimension(900,600);
+    private final double ESCAPE_RADIUS = 2;
+    private Dimension canvasDim =new Dimension(900,600);
 
     //X borders
-    static double minX = -2;
-    static double maxX = 1;
+    private double minX = -2;
+    private double maxX = 1;
 
     //Y borders
-    static double minY = -1;
-    static double maxY = 1;
+    private double minY = -1;
+    private double maxY = 1;
 
     //List of pixels
     private List<Pixel> pixels;
 
-    public MandelbrotCalculator() {
+    public ComputingUnit() {
         pixels = new ArrayList<Pixel>();
     }
 
 
-    public void calculateMandelbrot(){
+    public void calculateMandelbrot(){      //TODO: Make julia set to and then as an ENUM make it so that you can switch and calculate that instead
 
+        //borders of the plane we're looking at, and taking their distance
         double dX = Math.abs(maxX-minX);
         double dY = Math.abs(maxY-minY);
 
-        //Calculate the steps you take between each rendered pixel
+        //Calculate the size of steps you take between each rendered pixel
         double stepX = dX/canvasDim.getWidth();
         double stepY = dY/canvasDim.getHeight();
 

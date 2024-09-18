@@ -4,12 +4,11 @@ import java.util.List;
 
 public class Canvas extends JPanel {
     int MAX_ITER;   // THIS IS TEMPORARY FUCK YOU SHOULD TAKE IT FROM MANDELBROTCALCULATOR
-    public List<Pixel> pixels; //static?????
+    public List<Pixel> pixels;
 
     public Canvas(){
         this.setPreferredSize(new Dimension(900,600));
-        this.MAX_ITER = MandelbrotCalculator.getMaxIterations();
-        //this.setBackground(Color.BLACK);
+        this.MAX_ITER = ComputingUnit.getMaxIterations();
     }
 
     public void setPixels(List<Pixel> pixels) {
