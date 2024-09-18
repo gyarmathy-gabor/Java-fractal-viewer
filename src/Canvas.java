@@ -23,7 +23,6 @@ public class Canvas extends JPanel {
 
         if (pixels != null) {
             Graphics2D g2D = (Graphics2D) g;
-
             for (Pixel i : pixels) {
                 if (i.getOutStoodIterations() == MAX_ITER) {
                     g2D.setColor(Color.white);
@@ -35,5 +34,4 @@ public class Canvas extends JPanel {
             }
         }
     }
-
 }
