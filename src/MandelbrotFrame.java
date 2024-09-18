@@ -5,6 +5,7 @@ public class MandelbrotFrame extends JFrame {
     private Canvas canvas;
 
     public MandelbrotFrame(){
+        setTitle("Mandelbrot set viewer");
         //Basic initialization
         this.setSize(900,650);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
