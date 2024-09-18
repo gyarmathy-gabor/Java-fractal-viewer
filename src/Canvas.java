@@ -6,9 +6,9 @@ public class Canvas extends JPanel {
     int MAX_ITER;   // THIS IS TEMPORARY FUCK YOU SHOULD TAKE IT FROM MANDELBROTCALCULATOR
     public List<Pixel> pixels;
 
-    public Canvas(){
+    public Canvas(int iterationsMax){
         this.setPreferredSize(new Dimension(900,600));
-        this.MAX_ITER = ComputingUnit.getMaxIterations();
+        this.MAX_ITER = iterationsMax;
     }
 
     public void setPixels(List<Pixel> pixels) {

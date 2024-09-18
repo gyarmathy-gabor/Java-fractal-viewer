@@ -19,7 +19,7 @@ public class MandelbrotFrame extends JFrame {
         this.setLayout(null); //set the layout to manual
 
         //Adding canvas
-        this.canvas = new Canvas();
+        this.canvas = new Canvas(computer.getMaxIterations());
         this.add(canvas);
         canvas.setBounds(0,50,900,600);
 

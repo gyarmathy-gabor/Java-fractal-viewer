@@ -5,7 +5,7 @@ import java.util.List;
 public class ComputingUnit {
 
     //Basic values
-    static final int MAX_ITERATIONS = 25;
+    final int MAX_ITERATIONS = 25;
     private final double ESCAPE_RADIUS = 2;
     private Dimension canvasDim =new Dimension(900,600);
 
@@ -66,7 +66,7 @@ public class ComputingUnit {
         return pixels;
     }
 
-    public static int getMaxIterations() {
+    public int getMaxIterations() {
         return MAX_ITERATIONS;
     }
 
