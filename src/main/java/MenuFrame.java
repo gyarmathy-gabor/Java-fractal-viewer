@@ -41,23 +41,26 @@ public class MenuFrame extends JFrame {
 
 
         playButton.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e){
                 setVisible(false);
                 MandelbrotFrame frame = new MandelbrotFrame();
-                //dispose();
+                setVisible(true); //If they leave back into menu
             }
         });
 
         settingsButton.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e){
                 setVisible(false);
-                SettingsFrame settingsFrame = new SettingsFrame();
-                //dispose();
+                SettingsFrame settingsFrame = new SettingsFrame(MenuFrame.this);
+                //setVisible(true); //If they leave back into menu make this logic work inside the settings
             }
         });
 
 
         exitButton.addActionListener(new ActionListener(){
+            @Override
             public void actionPerformed(ActionEvent e){
                 System.exit(0);
             }
