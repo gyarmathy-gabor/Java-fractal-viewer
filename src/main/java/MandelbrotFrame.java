@@ -1,13 +1,15 @@
 import javax.swing.*;
 import java.util.List;
 
-public class MandelbrotFrame extends JFrame {
+public class MandelbrotFrame extends Scene {
+    private HeaderPanel header;
     private CanvasPanel canvasPanel;
     private ComputingUnit computer;
 
 
 
-    public MandelbrotFrame(){
+    public MandelbrotFrame(JFrame mainMenu){
+        super(mainMenu);
 
         //Logic
         computer = new ComputingUnit();
@@ -19,6 +21,13 @@ public class MandelbrotFrame extends JFrame {
         this.setSize(900,650);
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setLayout(null); //set the layout to manual
+
+
+        //Adding header
+        header = new HeaderPanel(this);
+        header.setBounds(0,0,900,50);
+        add(header);
+
 
         //Adding canvas
         this.canvasPanel = new CanvasPanel(computer.getMaxIterations());

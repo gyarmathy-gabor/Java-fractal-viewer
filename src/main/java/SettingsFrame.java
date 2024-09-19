@@ -2,10 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 
-public class SettingsFrame extends JFrame {
+public class SettingsFrame extends Scene {
 
     //Reference to main menu, so it can get back into it:
-    JFrame mainMenu;
+    //JFrame mainMenu;
 
 
     //Settings panels: TODO:Back to menu button, confirming, profiles
@@ -16,10 +16,11 @@ public class SettingsFrame extends JFrame {
 
 
     public SettingsFrame(JFrame mainMenu){
-        this.mainMenu = mainMenu;
+        super(mainMenu);
+        //this.mainMenu = mainMenu;
 
         setTitle("Settings");
-        setSize(900,650);
+        //setSize(900,650); already implemented in Scene
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
@@ -40,12 +41,4 @@ public class SettingsFrame extends JFrame {
 
         setVisible(true);
     }
-
-    @Override
-    public void dispose(){
-        super.dispose();
-        mainMenu.setVisible(true);
-    }
-
-
 }

@@ -3,8 +3,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-//TODO: Add this to settings and play
 public class HeaderPanel extends JPanel {
 
     private JFrame parentFrame; //Hogy ki tudjunk belőle lépni vissza a menübe

@@ -11,8 +11,3 @@ public class SettingPanel extends JPanel {
     }
 
 }
-//TODO: normálisan elrendezni + feliratokat kiírni még: a settekhez + colormaphoz
-//TODO: Settings befejezése visszalépni menübe, beállítások mentődnek
-//TODO: Profilokat, létrehozni, beállítások
-//TODO: Actually színezni a colormappal
-//TODO: Zoomolás ki-be

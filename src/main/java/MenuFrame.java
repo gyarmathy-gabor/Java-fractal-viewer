@@ -44,8 +44,8 @@ public class MenuFrame extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e){
                 setVisible(false);
-                MandelbrotFrame frame = new MandelbrotFrame();
-                setVisible(true); //If they leave back into menu
+                MandelbrotFrame frame = new MandelbrotFrame(MenuFrame.this);
+                //setVisible(true); //If they leave back into menu
             }
         });
 
