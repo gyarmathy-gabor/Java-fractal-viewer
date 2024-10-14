@@ -1,8 +1,9 @@
 import java.awt.Color;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Colormap {
+public class Colormap implements Serializable {
     private String name;
     private List<Color> colors;
 

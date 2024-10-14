@@ -53,7 +53,7 @@ public interface FileUtils {
 
     }
 
-    public static void saveProfile(String path, Profile profile){ //profile.json
+    public static void saveProfile(String path, Profile profile){ //Save current profile
 
 
     }
