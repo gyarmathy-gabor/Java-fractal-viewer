@@ -8,6 +8,8 @@ public class SettingPanel extends JPanel {
 
 
 
+
+
     }
 
 }

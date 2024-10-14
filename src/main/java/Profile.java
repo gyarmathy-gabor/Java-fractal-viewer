@@ -62,4 +62,8 @@ public class Profile implements Serializable {
     public void setProfileInUse(Boolean profileInUse) {
         isProfileInUse = profileInUse;
     }
+
+    public String toString(){
+        return name;
+    }
 }

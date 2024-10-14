@@ -8,7 +8,7 @@ public class SettingsFrame extends Scene {
 
 
     //Settings panels: TODO:Back to menu button, confirming, profiles
-    private HeaderPanel headerPanel;
+    private SettingsHeaderPanel headerPanel;
     private ParametersPanel parametersPanel;
     private FractalChoicePanel setsPanel;
     private ColormapPanel colormapsPanel;
@@ -23,7 +23,7 @@ public class SettingsFrame extends Scene {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
-        headerPanel = new HeaderPanel(this);
+        headerPanel = new SettingsHeaderPanel(this);
         headerPanel.setBounds(0,0,900,50);
         parametersPanel = new ParametersPanel(); parametersPanel.setBounds(450,50,450,600);
         setsPanel = new FractalChoicePanel(); setsPanel.setBounds(0,350,450,300);

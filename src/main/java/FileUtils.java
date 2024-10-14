@@ -25,7 +25,7 @@ public interface FileUtils {
     }
 
 
-    public static List<Colormap> readColormaps(String path){
+    public static Colormap[] readColormaps(String path){
         String json = jsonToString(path);
         List<Colormap> colormaps = new ArrayList<Colormap>();
         Gson gson = new Gson();
@@ -45,7 +45,7 @@ public interface FileUtils {
             Colormap colormap = new Colormap(name,colorArray);
             colormaps.add(colormap);
         }
-        return colormaps;
+        return colormaps.toArray(new Colormap[0]);
     }
 
     public static void writeProfiles(String path, List<Profile> profiles){
