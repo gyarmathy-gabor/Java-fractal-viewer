@@ -63,6 +63,9 @@ public interface FileUtils {
 
     public static void saveProfile(Profile profile){ //Save current profile
         List<Profile> profiles = readProfiles();
+        if(profiles==null){
+            profiles = new ArrayList<>();
+        }
         profiles.add(profile);
         writeProfiles(profiles);
     }

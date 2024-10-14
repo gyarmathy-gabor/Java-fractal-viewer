@@ -34,11 +34,18 @@ public class SettingsFrame extends Scene {
         add(setsPanel);
         add(colormapsPanel);
 
-
-
-
-
-
         setVisible(true);
+    }
+
+    public ParametersPanel getParametersPanel(){
+        return parametersPanel;
+    }
+
+    public FractalChoicePanel getSetsPanel() {
+        return setsPanel;
+    }
+
+    public ColormapPanel getColormapsPanel(){
+        return colormapsPanel;
     }
 }

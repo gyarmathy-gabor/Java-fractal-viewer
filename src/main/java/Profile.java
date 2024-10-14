@@ -12,15 +12,14 @@ public class Profile implements Serializable {
                    int maxIter,
                    double escapeRadius,
                    Colormap colormap,
-                   Fractal fractal,
-                   Boolean isProfileInUse)
+                   Fractal fractal)
     {
         this.name = name;
         this.maxIter = maxIter;
         this.escapeRadius = escapeRadius;
         this.colormap = colormap;
         this.fractalType = fractal;
-        this.isProfileInUse = isProfileInUse;
+        this.isProfileInUse = false; //LOOK OUT FOR THIS
     }
 
     public Colormap getColormap() {
