@@ -1,12 +1,11 @@
 import com.google.gson.*;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.awt.*;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+
 
 public interface FileUtils {
 
@@ -47,6 +46,24 @@ public interface FileUtils {
             colormaps.add(colormap);
         }
         return colormaps;
+    }
+
+    public static void writeProfiles(String path, List<Profile> profiles){
+
+
+    }
+
+    public static void saveProfile(String path, Profile profile){ //profile.json
+
+
+    }
+
+    public static List<Profile> readProfiles(String path){
+        return null;
+    }
+
+    public static Profile readChoosenProfiles(String path){
+        return null;
     }
 
 }

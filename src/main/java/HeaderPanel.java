@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class HeaderPanel extends JPanel {
-
+//TODO: legyen külön playHeader és settingsHeader
     private JFrame parentFrame; //Hogy ki tudjunk belőle lépni vissza a menübe
 
     public HeaderPanel(JFrame parentFrame){

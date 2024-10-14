@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class ParametersPanel extends SettingPanel{
-
+//TODO fixme pls
     public ParametersPanel(){
         super();
         setSize(450,600);

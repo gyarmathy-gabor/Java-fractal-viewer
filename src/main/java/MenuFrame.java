@@ -4,6 +4,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MenuFrame extends JFrame {
+   private JButton playButton;
+   private JButton settingsButton;
+   private JButton exitButton;
+   private JPanel buttonsPanel;
 
 
     public MenuFrame(){
@@ -12,32 +16,32 @@ public class MenuFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
-        //Button Panel
-        JPanel panel = new JPanel();
-        panel.setLayout(new GridBagLayout());
+        //Buttons Panel
+        buttonsPanel = new JPanel();
+        buttonsPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(20,20,20,20);
 
         //Play button
-        JButton playButton = new JButton("Play");
+        playButton = new JButton("Play");
         playButton.setPreferredSize(new Dimension(200,50));
         gbc.gridx = 0;
         gbc.gridy = 0;
-        panel.add(playButton,gbc);
+        buttonsPanel.add(playButton,gbc);
 
         //Settings button
-        JButton settingsButton = new JButton("Settings");
+        settingsButton = new JButton("Settings");
         playButton.setPreferredSize(new Dimension(200,50));
         gbc.gridx = 0;
         gbc.gridy = 1;
-        panel.add(settingsButton,gbc);
+        buttonsPanel.add(settingsButton,gbc);
 
         //Exit button
-        JButton exitButton = new JButton("Exit");
+        exitButton = new JButton("Exit");
         playButton.setPreferredSize(new Dimension(200,50));
         gbc.gridx = 0;
         gbc.gridy = 2;
-        panel.add(exitButton,gbc);
+        buttonsPanel.add(exitButton,gbc);
 
 
         playButton.addActionListener(new ActionListener(){
@@ -66,7 +70,7 @@ public class MenuFrame extends JFrame {
             }
         });
 
-        add(panel);
+        add(buttonsPanel);
         setVisible(true);
 
 

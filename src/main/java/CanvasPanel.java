@@ -3,8 +3,8 @@ import java.awt.*;
 import java.util.List;
 
 public class CanvasPanel extends JPanel {
-    int MAX_ITER;   // THIS IS TEMPORARY FUCK YOU SHOULD TAKE IT FROM MANDELBROTCALCULATOR
-    public List<Pixel> pixels;
+    private int MAX_ITER;   // THIS IS TEMPORARY FUCK YOU SHOULD TAKE IT FROM MANDELBROTCALCULATOR
+    private List<Pixel> pixels;
 
     public CanvasPanel(int iterationsMax){
         this.setPreferredSize(new Dimension(900,600));

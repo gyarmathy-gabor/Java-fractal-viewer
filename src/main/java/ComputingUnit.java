@@ -25,7 +25,7 @@ public class ComputingUnit {
     }
 
 
-    public void calculateMandelbrot(){      //TODO: Make julia set to and then as an ENUM make it so that you can switch and calculate that instead
+    public void calculateFractal(){      //TODO: Make julia set to and then as an ENUM make it so that you can switch and calculate that instead
 
         //borders of the plane we're looking at, and taking their distance
         double dX = Math.abs(maxX-minX);

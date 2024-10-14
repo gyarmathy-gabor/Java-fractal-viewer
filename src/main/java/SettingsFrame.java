@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 
 
 public class SettingsFrame extends Scene {
@@ -9,13 +8,13 @@ public class SettingsFrame extends Scene {
 
 
     //Settings panels: TODO:Back to menu button, confirming, profiles
-    private HeaderPanel header;
-    private ParametersPanel parameters;
-    private FractalChoicePanel sets;
-    private ColormapPanel colormaps;
+    private HeaderPanel headerPanel;
+    private ParametersPanel parametersPanel;
+    private FractalChoicePanel setsPanel;
+    private ColormapPanel colormapsPanel;
 
 
-    public SettingsFrame(JFrame mainMenu){
+    public SettingsFrame(MenuFrame mainMenu){
         super(mainMenu);
         //this.mainMenu = mainMenu;
 
@@ -24,15 +23,16 @@ public class SettingsFrame extends Scene {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
-        header = new HeaderPanel(this);header.setBounds(0,0,900,50);
-        parameters = new ParametersPanel(); parameters.setBounds(450,50,450,600);
-        sets = new FractalChoicePanel(); sets.setBounds(0,350,450,300);
-        colormaps = new ColormapPanel(); colormaps.setBounds(0,50,450,300);
+        headerPanel = new HeaderPanel(this);
+        headerPanel.setBounds(0,0,900,50);
+        parametersPanel = new ParametersPanel(); parametersPanel.setBounds(450,50,450,600);
+        setsPanel = new FractalChoicePanel(); setsPanel.setBounds(0,350,450,300);
+        colormapsPanel = new ColormapPanel(); colormapsPanel.setBounds(0,50,450,300);
 
-        add(header);
-        add(parameters);
-        add(sets);
-        add(colormaps);
+        add(headerPanel);
+        add(parametersPanel);
+        add(setsPanel);
+        add(colormapsPanel);
 
 
 

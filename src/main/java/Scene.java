@@ -2,9 +2,9 @@ import javax.swing.*;
 
 public class Scene extends JFrame {
 
-    JFrame mainMenu;
+    private MenuFrame mainMenu;
 
-    public Scene(JFrame mainMenu){
+    public Scene(MenuFrame mainMenu){
         this.mainMenu = mainMenu;
 
         setSize(900,650);

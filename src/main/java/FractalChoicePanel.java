@@ -1,7 +1,7 @@
 import javax.swing.*;
 
 public class FractalChoicePanel extends SettingPanel{
-    Fractal choice;
+    private Fractal choice;
 
     public FractalChoicePanel(){
         super();
