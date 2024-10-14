@@ -48,22 +48,52 @@ public interface FileUtils {
         return colormaps.toArray(new Colormap[0]);
     }
 
-    public static void writeProfiles(String path, List<Profile> profiles){
-
+    public static void writeProfiles(List<Profile> profiles){
+        FileOutputStream fileout = null;
+        try {
+            fileout = new FileOutputStream("src/main/resources/profiles.dat");
+            ObjectOutputStream out = new ObjectOutputStream(fileout);
+            out.writeObject(profiles);
+            out.close();
+        }
+        catch (FileNotFoundException e) {throw new RuntimeException(e);}
+        catch (IOException e) {throw new RuntimeException(e);}
 
     }
 
-    public static void saveProfile(String path, Profile profile){ //Save current profile
-
-
+    public static void saveProfile(Profile profile){ //Save current profile
+        List<Profile> profiles = readProfiles();
+        profiles.add(profile);
+        writeProfiles(profiles);
     }
 
-    public static List<Profile> readProfiles(String path){
-        return null;
+    public static void deleteProfile(Profile profile){
+        List<Profile> profiles = readProfiles();
+        profiles.remove(profile); //might not delete in case if the profile is changed
+        writeProfiles(profiles);
     }
 
-    public static Profile readChoosenProfiles(String path){
-        return null;
-    }
+    public static List<Profile> readProfiles(){
+        File file = new File("src/main/resources/profiles.dat");
+        if(!file.exists()){
+            writeProfiles(null);
+        }
 
+
+        FileInputStream fileIn = null;
+        List<Profile> profiles = null;
+        try {
+            fileIn = new FileInputStream("src/main/resources/profiles.dat");
+            ObjectInputStream in = new ObjectInputStream(fileIn) ;
+            profiles =(List<Profile>) in.readObject();
+            in.close();
+        }
+        catch (FileNotFoundException e) {
+            writeProfiles(null);
+        }
+        catch (IOException e) {throw new RuntimeException(e);}
+        catch (ClassNotFoundException e) {throw new RuntimeException(e);}
+
+        return profiles;
+    }
 }

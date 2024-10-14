@@ -7,7 +7,7 @@ public class SettingsFrame extends Scene {
     //JFrame mainMenu;
 
 
-    //Settings panels: TODO:Back to menu button, confirming, profiles
+    //Settings panels:
     private SettingsHeaderPanel headerPanel;
     private ParametersPanel parametersPanel;
     private FractalChoicePanel setsPanel;

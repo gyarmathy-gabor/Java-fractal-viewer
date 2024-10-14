@@ -12,7 +12,13 @@ public class SettingsHeaderPanel extends HeaderPanel{
         super(parentFrame);
 
 
-        profiles = new Profile[1];
+        List<Profile> profilesList = FileUtils.readProfiles();
+        if(profilesList==null){
+            profiles = new Profile[0];
+        }
+        else{
+            profiles = profilesList.toArray(new Profile[0]);
+        }
 
 
 
@@ -32,5 +38,16 @@ public class SettingsHeaderPanel extends HeaderPanel{
         add(profileNameTextField);
 
 
+
+        saveProfileButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //Make profile
+
+
+                //Give profile over
+                    //  FileUtils.saveProfile(HERE);
+            }
+        });
     }
 }
