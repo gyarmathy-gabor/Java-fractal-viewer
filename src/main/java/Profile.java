@@ -75,7 +75,7 @@ public class Profile implements Serializable {
         this.isProfileInUse = value;
     }
 
-    public Boolean equals(Profile other){
+    public Boolean hasSameName(Profile other){
         return (this.name.equals(other.name));
     }
 
