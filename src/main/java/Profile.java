@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.List;
 
 public class Profile implements Serializable {
     private String name;
@@ -68,5 +69,24 @@ public class Profile implements Serializable {
 
     public String getName(){
         return name;
+    }
+
+    public void setIsProfileInUse(Boolean value){
+        this.isProfileInUse = value;
+    }
+
+    public Boolean equals(Profile other){
+        return (this.name.equals(other.name));
+    }
+
+    public static Boolean isThereAnyProfileInUse(){
+        List<Profile> profiles = FileUtils.readProfiles(); //Folytasd innen
+        // Megnézni mindegyiket hogy van-e igaz, ha van akkor az első találatot használja
+        for(Profile p : profiles){
+            if(p.isProfileInUse){return true;}
+        }
+        return false;
+
+
     }
 }

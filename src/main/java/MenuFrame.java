@@ -47,9 +47,17 @@ public class MenuFrame extends JFrame {
         playButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
+
+                if(!Profile.isThereAnyProfileInUse()){
+                    JOptionPane.showMessageDialog(MenuFrame.this,
+                            "Please setup your profile inside settings!",
+                            "Warning",
+                            JOptionPane.WARNING_MESSAGE);
+                    return;
+                }
                 setVisible(false);
                 MandelbrotFrame frame = new MandelbrotFrame(MenuFrame.this);
-                //setVisible(true); //If they leave back into menu
+
             }
         });
 
