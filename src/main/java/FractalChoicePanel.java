@@ -23,4 +23,8 @@ public class FractalChoicePanel extends SettingPanel{
         int idx = sets.getSelectedIndex();
         return fractals[idx];
     }
+
+    public void setSets(Fractal fractal){
+        sets.setSelectedItem(fractal.toString());
+    }
 }

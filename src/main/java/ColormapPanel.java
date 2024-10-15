@@ -19,4 +19,14 @@ public class ColormapPanel extends SettingPanel {
         int idx = maps.getSelectedIndex();
         return colormaps[idx];
     }
+
+    public void setMaps(Colormap colormap){
+        int i;
+        for(i=0;i<colormaps.length;i++){
+            if(colormap.equals(colormaps[i])){
+              break;
+            }
+        }
+        maps.setSelectedIndex(i);
+    }
 }

@@ -66,4 +66,12 @@ public class ParametersPanel extends SettingPanel{
         return Integer.parseInt(text);
     }
 
+    public void setTextFieldMaxIterations(int maxIterations){
+        textFieldMaxIterations.setText(Integer.toString(maxIterations));
+    }
+
+    public void setTextFieldEscapeRadius(double escapeRadius){
+        textFieldEscapeRadius.setText(Double.toString(escapeRadius));
+    }
+
 }

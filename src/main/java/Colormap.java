@@ -27,4 +27,8 @@ public class Colormap implements Serializable {
     public String toString(){
         return name;
     }
+
+    public Boolean equals(Colormap other){
+        return this.name.equals(other.name);
+    }
 }

@@ -43,6 +43,7 @@ public class SettingsHeaderPanel extends HeaderPanel{
 
 
 
+        //Saving a profile button
         saveProfileButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -59,6 +60,21 @@ public class SettingsHeaderPanel extends HeaderPanel{
 
                 //Give profile over
                 FileUtils.saveProfile(profile);
+            }
+        });
+
+        //If a profile is choosen get it's settings
+        profileList.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                SettingsFrame settingsFrame = (SettingsFrame) parentFrame;
+
+                int idx = profileList.getSelectedIndex();
+                Profile choosen = profiles[idx];
+                settingsFrame.getParametersPanel().setTextFieldEscapeRadius(choosen.getEscapeRadius());
+                settingsFrame.getParametersPanel().setTextFieldMaxIterations(choosen.getMaxIter());
+                settingsFrame.getColormapsPanel().setMaps(choosen.getColormap());
+                settingsFrame.getSetsPanel().setSets(choosen.getFractalType());
             }
         });
     }
