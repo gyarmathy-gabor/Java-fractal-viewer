@@ -1,6 +1,4 @@
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.List;
 
 public class SettingsHeaderPanel extends HeaderPanel {
@@ -51,8 +49,14 @@ public class SettingsHeaderPanel extends HeaderPanel {
         // Save profile button action listener
         saveProfileButton.addActionListener(e -> {
             Profile profile = createProfile(settingsFrame);
-            FileUtils.saveProfile(profile);
-            updateProfileList(profile);
+
+            if (!profileExists(profile)) {
+                FileUtils.saveProfile(profile);
+                updateProfileList(profile);
+            }
+            else{
+                JOptionPane.showMessageDialog(this, "Profile already exists!", "Error", JOptionPane.ERROR_MESSAGE);
+            }
         });
 
         // Profile selection action listener
@@ -70,6 +74,16 @@ public class SettingsHeaderPanel extends HeaderPanel {
                 deleteProfile(idx);
             }
         });
+    }
+
+    private boolean profileExists(Profile newProfile) {
+        // Check if the profile with the same name exists in the current profiles
+        for (Profile profile : profiles) {
+            if (profile.hasSameName(newProfile)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     private Profile createProfile(SettingsFrame settingsFrame) {
@@ -135,7 +149,7 @@ public class SettingsHeaderPanel extends HeaderPanel {
         }
         //Make the current profile's active bool true
         for(Profile p : profiles){
-            if(p.equals(profile)){p.setIsProfileInUse(true);}
+            if(p.hasSameName(profile)){p.setIsProfileInUse(true);}
         }
         //Save every profile
         FileUtils.writeProfiles(profiles);
