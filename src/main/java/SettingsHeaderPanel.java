@@ -94,6 +94,7 @@ public class SettingsHeaderPanel extends HeaderPanel {
         settingsFrame.getParametersPanel().setTextFieldMaxIterations(profile.getMaxIter());
         settingsFrame.getColormapsPanel().setMaps(profile.getColormap());
         settingsFrame.getSetsPanel().setSets(profile.getFractalType());
+        profileNameTextField.setText(profile.toString());
     }
 
     private void deleteProfile(int idx) {
