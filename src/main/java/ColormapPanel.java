@@ -15,7 +15,12 @@ public class ColormapPanel extends SettingPanel {
         colormaps = FileUtils.readColormaps("src/main/resources/colormaps.json");
 
         maps = new JComboBox(colormaps);
-        maps.setBounds(10,10,150,30);
+        JLabel currentColormap = new JLabel("Colormap:");
+        maps.setBounds(110,10,150,30);
+        currentColormap.setBounds(10,10,100,30);
+
+
+
 
         colorsOfMaps = new ColormapDisplayPanel();
         colorsOfMaps.setBounds(10, 50, 400, 50);
@@ -26,6 +31,7 @@ public class ColormapPanel extends SettingPanel {
 
         add(maps);
         add(colorsOfMaps);
+        add(currentColormap);
         colorsOfMaps.setColormap(colormaps[maps.getSelectedIndex()]);
 
 
