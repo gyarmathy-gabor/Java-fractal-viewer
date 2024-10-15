@@ -29,6 +29,8 @@ public class SettingsHeaderPanel extends HeaderPanel {
         profileList = new JComboBox<>(profiles);
         profileList.setBounds(600, 0, 200, 50);
         add(profileList);
+        //new content
+        profileList.setSelectedIndex(-1);
 
         // Profile name JTextField
         profileNameTextField = new JTextField();
