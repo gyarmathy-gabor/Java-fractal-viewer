@@ -69,4 +69,12 @@ public class Profile implements Serializable {
     public String getName(){
         return name;
     }
+
+    public void setIsProfileInUse(Boolean value){
+        this.isProfileInUse = value;
+    }
+
+    public Boolean equals(Profile other){
+        return (this.name.equals(other.name));
+    }
 }

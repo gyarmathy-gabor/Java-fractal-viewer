@@ -29,7 +29,6 @@ public class SettingsHeaderPanel extends HeaderPanel {
         profileList = new JComboBox<>(profiles);
         profileList.setBounds(600, 0, 200, 50);
         add(profileList);
-        //new content
         profileList.setSelectedIndex(-1);
 
         // Profile name JTextField
@@ -97,6 +96,7 @@ public class SettingsHeaderPanel extends HeaderPanel {
         settingsFrame.getColormapsPanel().setMaps(profile.getColormap());
         settingsFrame.getSetsPanel().setSets(profile.getFractalType());
         profileNameTextField.setText(profile.toString());
+        setProfileActive(profile);
     }
 
     private void deleteProfile(int idx) {
@@ -121,5 +121,23 @@ public class SettingsHeaderPanel extends HeaderPanel {
 
     public String getGivenNameOfProfile() {
         return profileNameTextField.getText().isEmpty() ? "Default" : profileNameTextField.getText().trim();
+    }
+
+    // This functions makes a profile active in the fractal-viewer
+    public void setProfileActive(Profile profile){
+        //Get profiles
+        List<Profile> profiles = FileUtils.readProfiles();
+
+
+        //Make every profile's active bool false
+        for(Profile p : profiles){
+            p.setIsProfileInUse(false);
+        }
+        //Make the current profile's active bool true
+        for(Profile p : profiles){
+            if(p.equals(profile)){p.setIsProfileInUse(true);}
+        }
+        //Save every profile
+        FileUtils.writeProfiles(profiles);
     }
 }
