@@ -65,4 +65,8 @@ public class Profile implements Serializable {
     public String toString(){
         return name;
     }
+
+    public String getName(){
+        return name;
+    }
 }

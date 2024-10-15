@@ -70,16 +70,19 @@ public interface FileUtils {
         writeProfiles(profiles);
     }
 
-    public static void deleteProfile(Profile profile){
+    public static void deleteProfile(Profile profileToDelete){
         List<Profile> profiles = readProfiles();
-        profiles.remove(profile); //might not delete in case if the profile is changed
+
+        // Remove profile if the name matches
+        profiles.removeIf(profile -> profile.getName().equals(profileToDelete.getName()));
+
         writeProfiles(profiles);
     }
 
     public static List<Profile> readProfiles(){
         File file = new File("src/main/resources/profiles.dat");
         if(!file.exists()){
-            writeProfiles(null);
+            return new ArrayList<>();
         }
 
 

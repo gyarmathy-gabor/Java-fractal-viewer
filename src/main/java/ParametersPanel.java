@@ -52,18 +52,15 @@ public class ParametersPanel extends SettingPanel{
 
     public double getEscapeRadius() {
         String text = textFieldEscapeRadius.getText().trim();
-        if(text.isEmpty()){
-            return DEFAULT_MAX_ITERATIONS;
+        if (text.isEmpty()) {
+            return DEFAULT_ESCAPE_RADIUS; // Use the default value if the text field is empty
         }
-        boolean isNumeric;
         try {
-            Double.parseDouble(text);
-            isNumeric = true;
+            return Double.parseDouble(text); // Parse directly as double
         } catch (NumberFormatException e) {
-            isNumeric = false;
-            return DEFAULT_MAX_ITERATIONS;
+            e.printStackTrace();
+            return DEFAULT_ESCAPE_RADIUS;
         }
-        return Integer.parseInt(text);
     }
 
     public void setTextFieldMaxIterations(int maxIterations){

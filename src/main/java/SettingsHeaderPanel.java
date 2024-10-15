@@ -1,91 +1,122 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
 
-
-public class SettingsHeaderPanel extends HeaderPanel{
-    Profile profiles[];
-
+public class SettingsHeaderPanel extends HeaderPanel {
+    private Profile[] profiles;
     private JTextField profileNameTextField;
-    private JComboBox profileList;
+    private JComboBox<Profile> profileList;
     private JButton saveProfileButton;
+    private JButton deleteProfileButton;
 
-    public SettingsHeaderPanel(JFrame parentFrame){
+    public SettingsHeaderPanel(JFrame parentFrame) {
         super(parentFrame);
+        initializeProfiles();
+        initializeUIComponents();
+        setupListeners((SettingsFrame) parentFrame);
+    }
 
-
+    private void initializeProfiles() {
         List<Profile> profilesList = FileUtils.readProfiles();
-        if(profilesList==null){
-            profiles = new Profile[0];
-        }
-        else{
-            profiles = profilesList.toArray(new Profile[0]);
-        }
+        profiles = profilesList != null ? profilesList.toArray(new Profile[0]) : new Profile[0];
+    }
 
+    private void initializeUIComponents() {
+        setLayout(null);
 
-
-        //Save profile button
-        saveProfileButton = new JButton("Save");
-        saveProfileButton.setBounds(800,0,100,50);
-        add(saveProfileButton);
-
-        //Profiles combobox
-        profileList = new JComboBox(profiles);
-        profileList.setBounds(600,0,200,50);
+        // Profiles JComboBox
+        profileList = new JComboBox<>(profiles);
+        profileList.setBounds(600, 0, 200, 50);
         add(profileList);
 
-        //Give name text-field
-        profileNameTextField = new JTextField("");
-        profileNameTextField.setBounds(300,0,300,50);
+        // Profile name JTextField
+        profileNameTextField = new JTextField();
+        profileNameTextField.setBounds(300, 0, 300, 50);
         add(profileNameTextField);
 
+        // Save profile JButton
+        saveProfileButton = new JButton("Save");
+        saveProfileButton.setBounds(800, 0, 100, 50);
+        add(saveProfileButton);
 
+        // Delete profile JButton
+        deleteProfileButton = new JButton("Delete");
+        deleteProfileButton.setBounds(200, 0, 100, 50);
+        add(deleteProfileButton);
+    }
 
-        //Saving a profile button
-        saveProfileButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SettingsFrame settingsFrame = (SettingsFrame) parentFrame;
+    private void setupListeners(SettingsFrame settingsFrame) {
+        // Save profile button action listener
+        saveProfileButton.addActionListener(e -> {
+            Profile profile = createProfile(settingsFrame);
+            FileUtils.saveProfile(profile);
+            updateProfileList(profile);
+        });
 
-                //Make profile
-                Profile profile = new Profile(
-                        getGivenNameOfProfile(),
-                        settingsFrame.getParametersPanel().getMaxIterations(),
-                        settingsFrame.getParametersPanel().getEscapeRadius(),
-                        settingsFrame.getColormapsPanel().getChosenColormap(),
-                        settingsFrame.getSetsPanel().getFractalChoice()
-                );
-
-                //Give profile over
-                FileUtils.saveProfile(profile);
+        // Profile selection action listener
+        profileList.addActionListener(e -> {
+            int idx = profileList.getSelectedIndex();
+            if (idx >= 0 && idx < profiles.length) {
+                updateSettingsFromProfile(settingsFrame, profiles[idx]);
             }
         });
 
-        //If a profile is choosen get it's settings
-        profileList.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                SettingsFrame settingsFrame = (SettingsFrame) parentFrame;
-
-                int idx = profileList.getSelectedIndex();
-                Profile choosen = profiles[idx];
-                settingsFrame.getParametersPanel().setTextFieldEscapeRadius(choosen.getEscapeRadius());
-                settingsFrame.getParametersPanel().setTextFieldMaxIterations(choosen.getMaxIter());
-                settingsFrame.getColormapsPanel().setMaps(choosen.getColormap());
-                settingsFrame.getSetsPanel().setSets(choosen.getFractalType());
+        // Delete profile button action listener
+        deleteProfileButton.addActionListener(e -> {
+            int idx = profileList.getSelectedIndex();
+            if (idx != -1) {
+                deleteProfile(idx);
             }
         });
     }
 
-    public String getGivenNameOfProfile(){
+    private Profile createProfile(SettingsFrame settingsFrame) {
+        return new Profile(
+                getGivenNameOfProfile(),
+                settingsFrame.getParametersPanel().getMaxIterations(),
+                settingsFrame.getParametersPanel().getEscapeRadius(),
+                settingsFrame.getColormapsPanel().getChosenColormap(),
+                settingsFrame.getSetsPanel().getFractalChoice()
+        );
+    }
 
-        if(profileNameTextField.getText().isEmpty()){
-            return "Default";
+    private void updateProfileList(Profile newProfile) {
+        // Update profiles array and JComboBox
+        List<Profile> list = FileUtils.readProfiles();
+        profiles = list.toArray(new Profile[0]);
+        profileList.addItem(newProfile);
+        profileList.setSelectedItem(newProfile);
+    }
+
+    private void updateSettingsFromProfile(SettingsFrame settingsFrame, Profile profile) {
+        settingsFrame.getParametersPanel().setTextFieldEscapeRadius(profile.getEscapeRadius());
+        settingsFrame.getParametersPanel().setTextFieldMaxIterations(profile.getMaxIter());
+        settingsFrame.getColormapsPanel().setMaps(profile.getColormap());
+        settingsFrame.getSetsPanel().setSets(profile.getFractalType());
+    }
+
+    private void deleteProfile(int idx) {
+        Profile toDelete = profiles[idx];
+        FileUtils.deleteProfile(toDelete);
+        refreshProfileList();
+    }
+
+    private void refreshProfileList() {
+        List<Profile> list = FileUtils.readProfiles();
+        profiles = list.toArray(new Profile[0]);
+        profileList.removeAllItems();
+        for (Profile profile : profiles) {
+            profileList.addItem(profile);
         }
-
-        return profileNameTextField.getText().trim();
+        if (profiles.length > 0) {
+            profileList.setSelectedIndex(Math.min(profileList.getSelectedIndex(), profiles.length - 1));
+        } else {
+            profileList.setSelectedIndex(-1); // If list is empty index -1 means no selection
+        }
     }
 
+    public String getGivenNameOfProfile() {
+        return profileNameTextField.getText().isEmpty() ? "Default" : profileNameTextField.getText().trim();
+    }
 }
