@@ -16,17 +16,17 @@ public class ParametersPanel extends SettingPanel{
 
         //Max iterations
         textFieldMaxIterations = new JTextField();
-        JLabel currentMaxIterations = new JLabel("Here goes number");
-        textFieldMaxIterations.setBounds(200,200,50,30);
-        currentMaxIterations.setBounds(250,200,100,30);
+        JLabel currentMaxIterations = new JLabel("Max Iterations:");
+        textFieldMaxIterations.setBounds(110,0,50,30);
+        currentMaxIterations.setBounds(10,0,100,30);
 
 
 
         //Escape radius
         textFieldEscapeRadius = new JTextField();
-        JLabel currentEscapeRadius = new JLabel("Here goes number");
-        textFieldEscapeRadius.setBounds(200,300,50,30);
-        currentEscapeRadius.setBounds(250,300,100,30);
+        JLabel currentEscapeRadius = new JLabel("Escape Radius:");
+        textFieldEscapeRadius.setBounds(110,70,50,30);
+        currentEscapeRadius.setBounds(10,70,100,30);
 
         add(textFieldEscapeRadius);
         add(textFieldMaxIterations);

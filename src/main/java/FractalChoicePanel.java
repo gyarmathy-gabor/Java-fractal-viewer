@@ -15,7 +15,7 @@ public class FractalChoicePanel extends SettingPanel{
         }
 
         sets = new JComboBox<>(names);
-        sets.setBounds(200,200,150,30);
+        sets.setBounds(10,10,150,30);
         add(sets);
     }
 
