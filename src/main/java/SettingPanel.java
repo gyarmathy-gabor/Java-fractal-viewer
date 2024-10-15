@@ -4,7 +4,7 @@ public class SettingPanel extends JPanel {
 
     public SettingPanel(){
         setLayout(null); //manual layout
-        setSize(450,300);
+        setSize(450,100);
 
 
 

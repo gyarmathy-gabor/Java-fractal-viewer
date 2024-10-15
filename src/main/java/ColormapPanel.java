@@ -18,7 +18,7 @@ public class ColormapPanel extends SettingPanel {
         maps.setBounds(10,10,150,30);
 
         colorsOfMaps = new ColormapDisplayPanel();
-        colorsOfMaps.setBounds(10, 40, 400, 50);
+        colorsOfMaps.setBounds(10, 50, 400, 50);
         maps.addActionListener(e -> {
             int selectedIndex = maps.getSelectedIndex();
             colorsOfMaps.setColormap(colormaps[selectedIndex]);
