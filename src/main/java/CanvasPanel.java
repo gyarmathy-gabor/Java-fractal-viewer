@@ -25,13 +25,6 @@ public class CanvasPanel extends JPanel {
         if (pixels != null) {
             Graphics2D g2D = (Graphics2D) g;
             for (Pixel i : pixels) {
-               // if (i.getOutStoodIterations() == MAX_ITER) {
-               //     g2D.setColor(Color.white);
-               //     g2D.fillRect(i.getDisplayX(), i.getDisplayY(), 1, 1);  // Draw pixel
-               // } else {
-               //     g2D.setColor(Color.black);
-               //     g2D.fillRect(i.getDisplayX(), i.getDisplayY(), 1, 1);  // Draw pixel
-               // }
                 g2D.setColor(setColor(i.getOutStoodIterations()));
                 g2D.fillRect(i.getDisplayX(),i.getDisplayY(),1,1);
             }
