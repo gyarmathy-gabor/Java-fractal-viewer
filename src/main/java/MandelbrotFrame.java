@@ -34,7 +34,7 @@ public class MandelbrotFrame extends Scene {
 
 
         //Adding canvas
-        this.canvasPanel = new CanvasPanel(computer.getMaxIterations());
+        this.canvasPanel = new CanvasPanel(choosenProfile.getMaxIter(),choosenProfile.getColormap());
         this.add(canvasPanel);
         canvasPanel.setBounds(0,50,900,600);
 
