@@ -102,4 +102,14 @@ public interface FileUtils {
 
         return profiles;
     }
+
+    public static Profile getChoosenProfile(){
+        List<Profile> profiles = readProfiles();
+        for(Profile p : profiles){
+            if(p.getProfileInUse()){
+                return p;
+            }
+        }
+        return null;
+    }
 }

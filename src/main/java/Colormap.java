@@ -31,4 +31,8 @@ public class Colormap implements Serializable {
     public Boolean equals(Colormap other){
         return this.name.equals(other.name);
     }
+
+    public int getSize(){
+        return colors.size();
+    }
 }
