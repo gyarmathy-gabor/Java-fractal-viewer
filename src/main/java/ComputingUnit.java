@@ -5,7 +5,7 @@ import java.util.List;
 public class ComputingUnit {
 
     //Basic values
-    Profile profile; //Contains max-iter and escape-radius
+    Profile profile; //Contains max-iter and escape-radius and choosen fractal type
     private final Dimension canvasDim =new Dimension(900,600);
 
     //X borders
@@ -25,7 +25,8 @@ public class ComputingUnit {
     }
 
 
-    public void calculateFractal(){      //TODO: Make julia set to and then as an ENUM make it so that you can switch and calculate that instead
+    //TODO: you will have to make the fractalchoice logic here, make different pixelfactories
+    public void calculateFractal(){  //hey
 
         //borders of the plane we're looking at, and taking their distance
         double dX = Math.abs(maxX-minX);
@@ -40,17 +41,28 @@ public class ComputingUnit {
             for(int y=0;y<canvasDim.height;y++){
                  double coordX = minX + x*stepX;
                  double coordY = minY + y*stepY;
-                 PixelFactory(coordX,coordY,x,y);
+                 if(profile.getFractalType()==Fractal.MANDELBROT){
+                     MandelbrotPixelFactory(coordX,coordY,x,y);
+                 }
+                 else if(profile.getFractalType()==Fractal.JULIA){
+                     JuliaPixelFactory(coordX,coordY,x,y);
+                 }
+                 else{
+                     MandelbrotPixelFactory(coordX,coordY,x,y); //in case something happens
+                 }
             }
         }
     }
 
-    private void PixelFactory(double x,double y,int widthCoord,int heightCoord){
+    //Mandelbrot pixelfactory
+    private void MandelbrotPixelFactory(double x, double y, int widthCoord, int heightCoord){
         Complex c = new Complex(x,y);
         Complex z = new Complex(0,0);
         int iteration = 0;
         for(;iteration<profile.getMaxIter();iteration++){
+
             z = Equation(c,z);
+
             if(z.radius()>profile.getEscapeRadius()){
                 break;
             }
@@ -58,6 +70,26 @@ public class ComputingUnit {
         pixels.add(new Pixel(c,iteration,widthCoord,heightCoord));
     }
 
+    //Julia pixelfactory
+    private void JuliaPixelFactory(double x, double y, int widthCoord, int heightCoord){
+        Complex c = new Complex(-0.7,0.27015); //IN JULIA SET THIS IS CONSTANT, you should probably make a settings part for this
+        Complex z = new Complex(x,y);
+        int iteration = 0;
+        for(;iteration< profile.getMaxIter();iteration++){
+            z = Equation(c,z);
+            if(z.radius()>profile.getEscapeRadius()){
+                break;
+            }
+        }
+        pixels.add(new Pixel(c,iteration,widthCoord,heightCoord));
+
+    }
+
+
+
+
+
+    //This is the same for both mandelbrot and julia equations
     private Complex Equation(Complex c,Complex z){
         return z.square().add(c);
     }
