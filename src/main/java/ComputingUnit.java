@@ -5,8 +5,7 @@ import java.util.List;
 public class ComputingUnit {
 
     //Basic values
-    final int MAX_ITERATIONS = 25;
-    private final double ESCAPE_RADIUS = 2;
+    Profile profile; //Contains max-iter and escape-radius
     private final Dimension canvasDim =new Dimension(900,600);
 
     //X borders
@@ -20,8 +19,9 @@ public class ComputingUnit {
     //List of pixels
     private List<Pixel> pixels;
 
-    public ComputingUnit() {
+    public ComputingUnit(Profile profile) {
         pixels = new ArrayList<Pixel>();
+        this.profile = profile;
     }
 
 
@@ -49,9 +49,9 @@ public class ComputingUnit {
         Complex c = new Complex(x,y);
         Complex z = new Complex(0,0);
         int iteration = 0;
-        for(;iteration<MAX_ITERATIONS;iteration++){
+        for(;iteration<profile.getMaxIter();iteration++){
             z = Equation(c,z);
-            if(z.radius()>ESCAPE_RADIUS){
+            if(z.radius()>profile.getEscapeRadius()){
                 break;
             }
         }
@@ -67,7 +67,7 @@ public class ComputingUnit {
     }
 
     public int getMaxIterations() {
-        return MAX_ITERATIONS;
+        return profile.getMaxIter();
     }
 
 }

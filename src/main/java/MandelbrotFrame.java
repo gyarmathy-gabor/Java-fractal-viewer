@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.util.List;
 
 public class MandelbrotFrame extends Scene {
-    private HeaderPanel headerPanel;
+    private ViewerHeaderPanel headerPanel;
     private CanvasPanel canvasPanel;
     private ComputingUnit computer;
 
@@ -11,8 +11,12 @@ public class MandelbrotFrame extends Scene {
     public MandelbrotFrame(MenuFrame mainMenu){
         super(mainMenu);
 
+        //Get choosen profile for computing unit
+        Profile choosenProfile =FileUtils.getChoosenProfile();
+
+
         //Logic
-        computer = new ComputingUnit();
+        computer = new ComputingUnit(choosenProfile);
         computer.calculateFractal();
 
 
@@ -24,7 +28,7 @@ public class MandelbrotFrame extends Scene {
         setLocationRelativeTo(null);
 
         //Adding header
-        headerPanel = new HeaderPanel(this);
+        headerPanel = new ViewerHeaderPanel(this,choosenProfile);
         headerPanel.setBounds(0,0,900,50);
         add(headerPanel);
 
