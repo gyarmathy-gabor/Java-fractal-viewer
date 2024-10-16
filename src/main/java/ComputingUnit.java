@@ -47,6 +47,9 @@ public class ComputingUnit {
                  else if(profile.getFractalType()==Fractal.JULIA){
                      JuliaPixelFactory(coordX,coordY,x,y);
                  }
+                 else if(profile.getFractalType()==Fractal.BURNING_SHIP){
+                     BurningShipPixelFactory(coordX,coordY,x,y);
+                 }
                  else{
                      MandelbrotPixelFactory(coordX,coordY,x,y); //in case something happens
                  }
@@ -83,6 +86,21 @@ public class ComputingUnit {
         }
         pixels.add(new Pixel(c,iteration,widthCoord,heightCoord));
 
+    }
+
+    private void BurningShipPixelFactory(double x, double y, int widthCoord, int heightCoord){
+        Complex c = new Complex(x,y);
+        Complex z = new Complex(0,0); //maybe 0.355 0.355
+        int iteration = 0;
+        for(;iteration< profile.getMaxIter();iteration++){
+            double realPart = Math.abs(z.getReal());
+            double imaginaryPart = Math.abs(z.getImaginary());
+            z = new Complex(realPart,imaginaryPart).square().add(c);
+            if(z.radius()> profile.getEscapeRadius()){
+                break;
+            }
+        }
+        pixels.add(new Pixel(c,iteration,widthCoord,heightCoord));
     }
 
 
