@@ -1,8 +1,16 @@
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.*;
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class ComputingUnit {
+    //ParentFrame(for animations)[we're casting it later]
+    Scene scene;
+
 
     //Basic values
     Profile profile; //Contains max-iter and escape-radius and choosen fractal type
@@ -22,10 +30,17 @@ public class ComputingUnit {
     public ComputingUnit(Profile profile) {
         pixels = new ArrayList<Pixel>();
         this.profile = profile;
+        scene = null;
+    }
+
+    //Constructor in case of animations
+    public ComputingUnit(Profile profile,Scene scene){
+        pixels = new ArrayList<Pixel>();
+        this.profile = profile;
+        this.scene = scene;
     }
 
 
-    //TODO: you will have to make the fractalchoice logic here, make different pixelfactories
     public void calculateFractal(){  //hey
 
         //borders of the plane we're looking at, and taking their distance
@@ -45,7 +60,7 @@ public class ComputingUnit {
                      MandelbrotPixelFactory(coordX,coordY,x,y);
                  }
                  else if(profile.getFractalType()==Fractal.JULIA){
-                     JuliaPixelFactory(coordX,coordY,x,y);
+                     JuliaPixelFactory(coordX,coordY,x,y,-0.7,0.27015); //these should be inside options
                  }
                  else if(profile.getFractalType()==Fractal.BURNING_SHIP){
                      BurningShipPixelFactory(coordX,coordY,x,y);
@@ -55,6 +70,36 @@ public class ComputingUnit {
                  }
             }
         }
+    }
+
+    public void animateJuliaSets(){
+        //borders of the plane we're looking at, and taking their distance
+        double dX = Math.abs(maxX-minX);
+        double dY = Math.abs(maxY-minY);
+
+        //Calculate the size of steps you take between each rendered pixel
+        double stepX = dX/canvasDim.getWidth();
+        double stepY = dY/canvasDim.getHeight();
+
+        //Getting animationframe
+        AnimationFrame frame = (AnimationFrame) scene;
+
+
+        for(double a=0;a< Math.PI;a=a+0.1){
+            Complex temp = Complex.fromPolar(a,0.7885); //a=0->2Pi and magnitude=0.7885
+
+            for(int x=0;x<canvasDim.width;x++) {
+                for (int y = 0; y < canvasDim.height; y++) {
+                    double coordX = minX + x * stepX;
+                    double coordY = minY + y * stepY;
+                    JuliaPixelFactory(coordX,coordY,x,y,temp.getReal(),temp.getImaginary());
+                }
+            }
+
+            frame.updateCanvas(pixels);   // Update the canvas with the new pixel data
+
+        }
+
     }
 
     //Mandelbrot pixelfactory
@@ -74,8 +119,8 @@ public class ComputingUnit {
     }
 
     //Julia pixelfactory
-    private void JuliaPixelFactory(double x, double y, int widthCoord, int heightCoord){
-        Complex c = new Complex(-0.7,0.27015); //IN JULIA SET THIS IS CONSTANT, you should probably make a settings part for this
+    private void JuliaPixelFactory(double x, double y, int widthCoord, int heightCoord,double realC, double imagC ){
+        Complex c = new Complex(realC,imagC); //IN JULIA SET THIS IS CONSTANT, you should probably make a settings part for this
         Complex z = new Complex(x,y);
         int iteration = 0;
         for(;iteration< profile.getMaxIter();iteration++){
