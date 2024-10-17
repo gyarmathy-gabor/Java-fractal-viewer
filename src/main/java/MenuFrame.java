@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 
 public class MenuFrame extends JFrame {
    private JButton playButton;
-   private JButton animationButton;
    private JButton settingsButton;
    private JButton exitButton;
    private JPanel buttonsPanel;
@@ -30,25 +29,18 @@ public class MenuFrame extends JFrame {
         gbc.gridy = 0;
         buttonsPanel.add(playButton,gbc);
 
-        //Animation Button
-        animationButton = new JButton("Animation");
-        animationButton.setPreferredSize(new Dimension(200,50));
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        buttonsPanel.add(animationButton,gbc);
-
         //Settings button
         settingsButton = new JButton("Settings");
         playButton.setPreferredSize(new Dimension(200,50));
         gbc.gridx = 0;
-        gbc.gridy = 2;
+        gbc.gridy = 1;
         buttonsPanel.add(settingsButton,gbc);
 
         //Exit button
         exitButton = new JButton("Exit");
         playButton.setPreferredSize(new Dimension(200,50));
         gbc.gridx = 0;
-        gbc.gridy = 3;
+        gbc.gridy = 2;
         buttonsPanel.add(exitButton,gbc);
 
 
@@ -65,25 +57,6 @@ public class MenuFrame extends JFrame {
                 }
                 setVisible(false);
                 MandelbrotFrame frame = new MandelbrotFrame(MenuFrame.this);
-
-            }
-        });
-
-        animationButton.addActionListener(new ActionListener(){
-            @Override
-            public void actionPerformed(ActionEvent e){
-                Profile active = FileUtils.getChoosenProfile();
-
-
-                if(active.getFractalType()!=Fractal.JULIA){
-                    JOptionPane.showMessageDialog(MenuFrame.this,
-                            "Please use a profile with julia fractal type set",
-                            "Warning",
-                            JOptionPane.WARNING_MESSAGE);
-                    return;
-                }
-                setVisible(false);
-                AnimationFrame frame = new AnimationFrame(MenuFrame.this);
 
             }
         });
