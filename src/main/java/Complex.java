@@ -7,6 +7,13 @@ public class Complex {
         imaginary = i;
     }
 
+    public static Complex fromPolar(double a, double magnitude) {
+        // Use Euler's formula: e^(i * a) = cos(a) + i * sin(a)
+        double realPart = magnitude * Math.cos(a);
+        double imaginaryPart = magnitude * Math.sin(a);
+        return new Complex(realPart, imaginaryPart);
+    }
+
     public Complex add(Complex other){
         return new Complex(this.real+other.real,this.imaginary+other.imaginary);
     }
