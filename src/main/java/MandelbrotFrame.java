@@ -42,7 +42,6 @@ public class MandelbrotFrame extends Scene {
 
         updateCanvas(computer.getPixels());
     }
-
     public void updateCanvas(List<Pixel> pixels) {
         canvasPanel.setPixels(pixels);
     }

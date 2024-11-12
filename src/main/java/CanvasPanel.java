@@ -17,7 +17,6 @@ public class CanvasPanel extends JPanel {
         this.pixels = pixels;
         revalidate();
         repaint();
-        //this.paintImmediately(100,100,100,100); itt a piros négyzet
     }
 
     @Override
