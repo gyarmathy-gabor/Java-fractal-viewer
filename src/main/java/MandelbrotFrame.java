@@ -42,8 +42,40 @@ public class MandelbrotFrame extends Scene {
 
         updateCanvas(computer.getPixels());
     }
-
     public void updateCanvas(List<Pixel> pixels) {
         canvasPanel.setPixels(pixels);
     }
+
+    public void moveToUp(){
+        computer.moveUpwards();
+        updateCanvas(computer.getPixels());
+
+    }
+
+    public void moveToDown(){
+        computer.moveDownwards();
+        updateCanvas(computer.getPixels());
+    }
+
+    public void moveToLeft(){
+        computer.moveLeftwards();
+        updateCanvas(computer.getPixels());
+    }
+
+    public void moveToRight(){
+        computer.moveRightwards();
+        updateCanvas(computer.getPixels());
+    }
+
+    public void zoomToIn(){
+        computer.zoomIn();
+        updateCanvas(computer.getPixels());
+    }
+
+    public void zoomToOut(){
+        computer.zoomOut();
+        updateCanvas(computer.getPixels());
+    }
+
+
 }
