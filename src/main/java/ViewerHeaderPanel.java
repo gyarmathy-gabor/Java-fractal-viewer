@@ -1,4 +1,6 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class ViewerHeaderPanel extends HeaderPanel{
     private Profile profile;
@@ -59,6 +61,54 @@ public class ViewerHeaderPanel extends HeaderPanel{
         this.add(right);
 
 
+        up.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.moveToUp();
+            }
+        });
+
+        down.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.moveToDown();
+            }
+        });
+
+        right.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.moveToRight();
+            }
+        });
+
+        left.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.moveToLeft();
+            }
+        });
+
+        zoomIn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.zoomToIn();
+            }
+        });
+
+
+        zoomOut.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MandelbrotFrame parent = (MandelbrotFrame) parentFrame;
+                parent.zoomToOut();
+            }
+        });
 
     }
 }

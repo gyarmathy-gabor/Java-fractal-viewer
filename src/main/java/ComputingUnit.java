@@ -17,12 +17,12 @@ public class ComputingUnit {
     private final Dimension canvasDim =new Dimension(900,600);
 
     //X borders
-    private final double minX = -2;
-    private final double maxX = 1;
+    private double minX = -2;
+    private double maxX = 1;
 
     //Y borders
-    private final double minY = -1;
-    private final double maxY = 1;
+    private double minY = -1;
+    private double maxY = 1;
 
     //List of pixels
     private List<Pixel> pixels;
@@ -164,5 +164,75 @@ public class ComputingUnit {
     public int getMaxIterations() {
         return profile.getMaxIter();
     }
+
+
+    public void moveUpwards(){
+        double dY = Math.abs(maxY-minY);
+        double d = dY * 0.1;
+        maxY -= d;  //Ez miért - miért nem + ? xd
+        minY -= d;
+        calculateFractal();
+    }
+
+    public void moveDownwards(){
+        double dY = Math.abs(maxY-minY);
+        double d = dY * 0.1;
+        maxY += d;  //Ez miért + miért nem - ? xd
+        minY += d;
+        calculateFractal();
+    }
+
+    public void moveLeftwards(){
+        double dX = Math.abs(maxX-minX);
+        double d = dX * 0.1;
+        maxX -= d;  //Ez MEG MIÉRT HELYES AMÚGY
+        minX -= d;
+        calculateFractal();
+    }
+
+    public void moveRightwards(){
+        double dX = Math.abs(maxX-minX);
+        double d = dX * 0.1;
+        maxX += d; //Ez MEG MIÉRT HELYES AMÚGY XDDDDDDD
+        minX += d;
+        calculateFractal();
+    }
+
+    public void zoomIn() {
+        double zoomRate = 1.2;
+
+        double centerX = (minX + maxX) / 2.0;
+        double centerY = (minY + maxY) / 2.0;
+
+        double rangeX = Math.abs(maxX - minX) / zoomRate;
+        double rangeY = Math.abs(maxY - minY) / zoomRate;
+
+        minX = centerX - rangeX / 2.0;
+        maxX = centerX + rangeX / 2.0;
+
+        minY = centerY - rangeY / 2.0;
+        maxY = centerY + rangeY / 2.0;
+
+        calculateFractal();
+    }
+
+    public void zoomOut() {
+        double zoomRate = 1.2;
+
+        double centerX = (minX + maxX) / 2.0;
+        double centerY = (minY + maxY) / 2.0;
+
+        double rangeX = Math.abs(maxX - minX) * zoomRate;
+        double rangeY = Math.abs(maxY - minY) * zoomRate;
+
+        minX = centerX - rangeX / 2.0;
+        maxX = centerX + rangeX / 2.0;
+
+        minY = centerY - rangeY / 2.0;
+        maxY = centerY + rangeY / 2.0;
+
+        calculateFractal();
+    }
+
 
 }
