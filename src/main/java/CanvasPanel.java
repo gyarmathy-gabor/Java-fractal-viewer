@@ -15,7 +15,9 @@ public class CanvasPanel extends JPanel {
 
     public void setPixels(List<Pixel> pixels) {
         this.pixels = pixels;
+        revalidate();
         repaint();
+        this.paintImmediately(100,100,100,100);
     }
 
     @Override
