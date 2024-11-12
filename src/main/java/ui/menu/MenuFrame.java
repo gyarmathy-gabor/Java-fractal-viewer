@@ -1,3 +1,9 @@
+package ui.menu;
+
+import model.profile.Profile;
+import ui.viewer.frame.MandelbrotFrame;
+import ui.settings.frame.SettingsFrame;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>/home/gyari/IdeaProjects/Prog3_NHF/src/main/java</OriginalElement>
+  <nodes>
+    <node x="485.5" y="-15.5">model.fractal.Fractal</node>
+    <node x="314.0" y="144.5">ui.settings.panel.ColormapDisplayPanel</node>
+    <node x="152.5" y="424.5">ui.settings.frame.SettingsFrame</node>
+    <node x="-102.0" y="424.5">ui.settings.panel.SettingPanel</node>
+    <node x="454.5" y="64.5">util.FileUtils</node>
+    <node x="365.0" y="564.5">ui.settings.panel.FractalChoicePanel</node>
+    <node x="336.5" y="-15.5">model.fractal.Pixel</node>
+    <node x="202.0" y="-15.5">Main</node>
+    <node x="243.5" y="64.5">ui.viewer.panel.CanvasPanel</node>
+    <node x="60.0" y="64.5">model.profile.Colormap</node>
+    <node x="-120.5" y="284.5">ui.settings.panel.SettingsHeaderPanel</node>
+    <node x="-125.5" y="64.5">ui.menu.MenuFrame</node>
+    <node x="132.5" y="564.5">ui.settings.panel.ColormapPanel</node>
+    <node x="-127.5" y="144.5">model.fractal.ComputingUnit</node>
+    <node x="25.5" y="-15.5">model.profile.Profile</node>
+    <node x="-134.5" y="-15.5">model.fractal.Complex</node>
+    <node x="170.5" y="284.5">ui.viewer.panel.ViewerHeaderPanel</node>
+    <node x="381.5" y="424.5">ui.viewer.frame.MandelbrotFrame</node>
+    <node x="-118.5" y="564.5">ui.settings.panel.ParametersPanel</node>
+    <node x="456.5" y="284.5">ui.Scene</node>
+    <node x="103.5" y="144.5">ui.HeaderPanel</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="ui.viewer.panel.ViewerHeaderPanel" target="ui.HeaderPanel" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="289.0" y="260.0" />
+      <point x="189.0" y="260.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.settings.panel.ColormapPanel" target="ui.settings.panel.SettingPanel" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="229.0" y="540.0" />
+      <point x="-11.0" y="540.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.settings.panel.SettingsHeaderPanel" target="ui.HeaderPanel" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="9.0" y="260.0" />
+      <point x="189.0" y="260.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.viewer.frame.MandelbrotFrame" target="ui.Scene" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="489.0" y="340.0" />
+      <point x="509.0" y="340.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.settings.panel.ParametersPanel" target="ui.settings.panel.SettingPanel" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.settings.panel.FractalChoicePanel" target="ui.settings.panel.SettingPanel" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="489.0" y="540.0" />
+      <point x="-11.0" y="540.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+    <edge source="ui.settings.frame.SettingsFrame" target="ui.Scene" relationship="GENERALIZATION">
+      <point x="0.0" y="-15.5" />
+      <point x="249.0" y="400.0" />
+      <point x="489.0" y="400.0" />
+      <point x="489.0" y="340.0" />
+      <point x="509.0" y="340.0" />
+      <point x="0.0" y="15.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="0.8813291139240507" showDependencies="false" x="239.0" y="484.59245960502693" />
+  <SelectedNodes />
+  <Categories />
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

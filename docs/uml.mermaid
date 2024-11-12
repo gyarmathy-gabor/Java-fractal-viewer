@@ -1,0 +1,140 @@
+
+
+
+classDiagram
+
+    JFrame <|-- ui.menu.MenuFrame
+    JFrame <|-- ui.Scene
+
+    class ui.menu.MenuFrame{
+      -JPanel buttonsPanel
+      -JButton playButton
+      -JButton settingsButton
+      -JButton exitButton
+      +ui.menu.MenuFrame()
+    }
+    class ui.Scene{
+      -ui.menu.MenuFrame mainMenu
+      +ui.Scene(ui.menu.MenuFrame mainMenu)
+      +dispose() void
+    }
+
+    ui.Scene <|-- ui.viewer.frame.MandelbrotFrame
+    class ui.viewer.frame.MandelbrotFrame{
+      -ui.HeaderPanel headerPanel
+      -ui.viewer.panel.CanvasPanel canvasPanel
+      -model.fractal.ComputingUnit computer
+
+      +ui.viewer.frame.MandelbrotFrame(ui.menu.MenuFrame mainMenu)
+      +updateCanvas(List<model.fractal.Pixel> pixels) void
+    }
+
+    ui.Scene <|-- ui.settings.frame.SettingsFrame
+    class ui.settings.frame.SettingsFrame{
+        -ui.HeaderPanel headerPanel
+        -ui.settings.panel.ParametersPanel ui.settings.panel.ParametersPanel
+        -ui.settings.panel.FractalChoicePanel setsPanel
+        -ui.settings.panel.ColormapPanel colormapsPanel
+
+        +ui.settings.frame.SettingsFrame(ui.menu.MenuFrame mainMenu)
+    }
+
+    JPanel <|-- ui.HeaderPanel
+    class ui.HeaderPanel{
+        -JFrame parentFrame
+
+        +ui.HeaderPanel(JFrame parentFrame)
+    }
+
+    JPanel <|-- ui.viewer.panel.CanvasPanel
+    class ui.viewer.panel.CanvasPanel{
+        -int MAX_ITER
+        -List<model.fractal.Pixel> pixels
+
+        +setPixels(List pixels) void
+        #paintComponent(Graphics g) void
+    }
+
+    JPanel <|-- ui.settings.panel.SettingPanel
+    class ui.settings.panel.SettingPanel{
+        +ui.settings.panel.SettingPanel()
+    }
+
+    ui.settings.panel.SettingPanel <|-- ui.settings.panel.ColormapPanel
+    ui.settings.panel.SettingPanel <|-- ui.settings.panel.ParametersPanel
+    ui.settings.panel.SettingPanel <|-- ui.settings.panel.FractalChoicePanel
+
+    class ui.settings.panel.ColormapPanel{
+        -List<model.profile.Colormap> colormaps
+
+        +ui.settings.panel.ColormapPanel()
+    }
+
+    class ui.settings.panel.FractalChoicePanel{
+        -model.fractal.Fractal choice
+        +ui.settings.panel.FractalChoicePanel()
+    }
+
+    class ui.settings.panel.ParametersPanel{
+        +ui.settings.panel.ParametersPanel()
+    }
+
+    ui.HeaderPanel<|--ui.settings.panel.SettingsHeaderPanel
+    ui.HeaderPanel<|--PlayHeaderPanel
+
+    ui.viewer.frame.MandelbrotFrame *-- model.fractal.ComputingUnit
+    class model.fractal.ComputingUnit{
+        -int MAX_ITERATIONS
+        -double ESCAPE_RADIUS
+        -Dimension canvasDim
+        -double minX
+        -double maxX
+        -double minY
+        -double maxY
+        -List< model.fractal.Pixel > pixels
+        
+        +model.fractal.ComputingUnit()
+        +calculateFractal() void
+        +PixelFactory(double x,double y, int widthCoord, int heightCoord) 
+        - Equation() model.fractal.Complex
+        +getPixels() List< model.fractal.Pixel >
+        +getMaxIterations() int
+    }
+
+    class model.fractal.Complex{
+        -double real
+        -double imaginary
+
+        +model.fractal.Complex(double r, double i)
+        +add(model.fractal.Complex other) model.fractal.Complex
+        +subtract(model.fractal.Complex other) model.fractal.Complex
+        +multiply(model.fractal.Complex other) model.fractal.Complex
+        +square() model.fractal.Complex
+        +radius() double
+
+    }
+
+    model.fractal.ComputingUnit *-- model.fractal.Pixel
+    ui.viewer.panel.CanvasPanel *-- model.fractal.Pixel
+    model.fractal.Pixel *-- model.fractal.Complex
+    ui.viewer.frame.MandelbrotFrame *-- ui.viewer.panel.CanvasPanel
+    ui.viewer.frame.MandelbrotFrame *-- PlayHeaderPanel
+    ui.settings.frame.SettingsFrame *-- ui.settings.panel.SettingsHeaderPanel
+    class model.fractal.Pixel{
+        -model.fractal.Complex cooridnate
+        -int outStoodIterations
+        -int displayX
+        -int displayY
+
+        +model.fractal.Pixel(model.fractal.Complex c,int iter,int displayX,int displayY)
+        +getDisplayX() int
+        +getDisplayY() int
+        +getOutStoodIterations() int 
+        +getCoordinate() model.fractal.Complex
+    }
+
+    class util.FileUtils
+    class model.fractal.Fractal{
+        ENUM
+    }
+

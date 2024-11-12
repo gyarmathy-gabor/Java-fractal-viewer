@@ -1,3 +1,10 @@
+package ui.settings.panel;
+
+import model.profile.Profile;
+import ui.HeaderPanel;
+import ui.settings.frame.SettingsFrame;
+import util.FileUtils;
+
 import javax.swing.*;
 import java.util.List;
 
@@ -29,7 +36,7 @@ public class SettingsHeaderPanel extends HeaderPanel {
         add(profileList);
         profileList.setSelectedIndex(-1);
 
-        // Profile name JTextField
+        // model.profile.Profile name JTextField
         profileNameTextField = new JTextField();
         profileNameTextField.setBounds(300, 0, 300, 50);
         add(profileNameTextField);
@@ -55,11 +62,11 @@ public class SettingsHeaderPanel extends HeaderPanel {
                 updateProfileList(profile);
             }
             else{
-                JOptionPane.showMessageDialog(this, "Profile already exists!", "Error", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "model.profile.Profile already exists!", "Error", JOptionPane.ERROR_MESSAGE);
             }
         });
 
-        // Profile selection action listener
+        // model.profile.Profile selection action listener
         profileList.addActionListener(e -> {
             int idx = profileList.getSelectedIndex();
             if (idx >= 0 && idx < profiles.length) {

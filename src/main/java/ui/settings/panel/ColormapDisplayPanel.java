@@ -1,3 +1,7 @@
+package ui.settings.panel;
+
+import model.profile.Colormap;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;

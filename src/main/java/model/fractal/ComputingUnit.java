@@ -1,3 +1,7 @@
+package model.fractal;
+
+import model.profile.Profile;
+
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,8 +28,6 @@ public class ComputingUnit {
         this.profile = profile;
     }
 
-
-    //TODO: you will have to make the fractalchoice logic here, make different pixelfactories
     public void calculateFractal(){  //hey
 
         //borders of the plane we're looking at, and taking their distance
@@ -41,13 +43,13 @@ public class ComputingUnit {
             for(int y=0;y<canvasDim.height;y++){
                  double coordX = minX + x*stepX;
                  double coordY = minY + y*stepY;
-                 if(profile.getFractalType()==Fractal.MANDELBROT){
+                 if(profile.getFractalType()== Fractal.MANDELBROT){
                      MandelbrotPixelFactory(coordX,coordY,x,y);
                  }
-                 else if(profile.getFractalType()==Fractal.JULIA){
+                 else if(profile.getFractalType()== Fractal.JULIA){
                      JuliaPixelFactory(coordX,coordY,x,y);
                  }
-                 else if(profile.getFractalType()==Fractal.BURNING_SHIP){
+                 else if(profile.getFractalType()== Fractal.BURNING_SHIP){
                      BurningShipPixelFactory(coordX,coordY,x,y);
                  }
                  else{
@@ -108,7 +110,7 @@ public class ComputingUnit {
 
 
     //This is the same for both mandelbrot and julia equations
-    private Complex Equation(Complex c,Complex z){
+    private Complex Equation(Complex c, Complex z){
         return z.square().add(c);
     }
 

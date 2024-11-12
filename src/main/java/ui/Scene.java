@@ -1,3 +1,7 @@
+package ui;
+
+import ui.menu.MenuFrame;
+
 import javax.swing.*;
 
 public class Scene extends JFrame {

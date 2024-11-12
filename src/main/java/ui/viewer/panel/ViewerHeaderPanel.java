@@ -1,8 +1,14 @@
+package ui.viewer.panel;
+
+import model.profile.Profile;
+import ui.HeaderPanel;
+import ui.viewer.frame.MandelbrotFrame;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class ViewerHeaderPanel extends HeaderPanel{
+public class ViewerHeaderPanel extends HeaderPanel {
     private Profile profile;
     JLabel informations;
 
@@ -13,7 +19,7 @@ public class ViewerHeaderPanel extends HeaderPanel{
     JButton zoomIn;
     JButton zoomOut;
 
-    public ViewerHeaderPanel(JFrame parentFrame,Profile profile){
+    public ViewerHeaderPanel(JFrame parentFrame, Profile profile){
         super(parentFrame);
         this.profile = profile;
 

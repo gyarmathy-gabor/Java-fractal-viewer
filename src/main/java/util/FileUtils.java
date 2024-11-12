@@ -1,10 +1,12 @@
-import com.google.gson.*;
+package util;
 
-import java.awt.*;
+import com.google.gson.*;
+import model.profile.Colormap;
+import model.profile.Profile;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 
 public interface FileUtils {

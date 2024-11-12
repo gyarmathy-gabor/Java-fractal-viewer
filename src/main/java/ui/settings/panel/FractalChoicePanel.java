@@ -1,6 +1,10 @@
+package ui.settings.panel;
+
+import model.fractal.Fractal;
+
 import javax.swing.*;
 
-public class FractalChoicePanel extends SettingPanel{
+public class FractalChoicePanel extends SettingPanel {
     JComboBox<String> sets;
     Fractal[] fractals;
 
@@ -10,7 +14,7 @@ public class FractalChoicePanel extends SettingPanel{
         fractals = Fractal.values();
 
         String[] names = new String[Fractal.values().length];
-        for(int i=0;i<Fractal.values().length;i++){
+        for(int i = 0; i< Fractal.values().length; i++){
             names[i] = fractals[i].toString();
         }
 

@@ -1,9 +1,9 @@
-
+package model.fractal;
 
 public class Pixel {
 
 
-    private final Complex coordinate;       //Complex coordinates
+    private final Complex coordinate;       //model.fractal.Complex coordinates
     private final int outStoodIterations;   //Iterations outstood before shooting to infinity
 
     //On which pixel of the screen it should be rendered on.
@@ -11,7 +11,7 @@ public class Pixel {
     private final int displayY;
 
 
-    Pixel(Complex c,int iter,int displayX,int displayY){
+    Pixel(Complex c, int iter, int displayX, int displayY){
         this.coordinate = c;
         this.outStoodIterations = iter;
         this.displayX = displayX;
