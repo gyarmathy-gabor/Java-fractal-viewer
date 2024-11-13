@@ -1,3 +1,8 @@
+package ui.settings.panel;
+
+import model.profile.Colormap;
+import util.FileUtils;
+
 import javax.swing.*;
 
 
@@ -15,7 +20,7 @@ public class ColormapPanel extends SettingPanel {
         colormaps = FileUtils.readColormaps("src/main/resources/colormaps.json");
 
         maps = new JComboBox(colormaps);
-        JLabel currentColormap = new JLabel("Colormap:");
+        JLabel currentColormap = new JLabel("model.profile.Colormap:");
         maps.setBounds(110,10,150,30);
         currentColormap.setBounds(10,10,100,30);
 

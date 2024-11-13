@@ -1,3 +1,12 @@
+package ui.settings.frame;
+
+import ui.Scene;
+import ui.menu.MenuFrame;
+import ui.settings.panel.ColormapPanel;
+import ui.settings.panel.FractalChoicePanel;
+import ui.settings.panel.ParametersPanel;
+import ui.settings.panel.SettingsHeaderPanel;
+
 import javax.swing.*;
 
 
@@ -19,7 +28,7 @@ public class SettingsFrame extends Scene {
         //this.mainMenu = mainMenu;
 
         setTitle("Settings");
-        //setSize(900,650); already implemented in Scene
+        //setSize(900,650); already implemented in ui.Scene
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);

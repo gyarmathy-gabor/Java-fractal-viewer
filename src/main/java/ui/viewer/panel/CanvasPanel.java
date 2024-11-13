@@ -1,3 +1,8 @@
+package ui.viewer.panel;
+
+import model.fractal.Pixel;
+import model.profile.Colormap;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.List;
@@ -7,7 +12,7 @@ public class CanvasPanel extends JPanel {
     private List<Pixel> pixels;
     private Colormap colormap;
 
-    public CanvasPanel(int iterationsMax,Colormap colormap){
+    public CanvasPanel(int iterationsMax, Colormap colormap){
         this.setPreferredSize(new Dimension(900,600));
         this.MAX_ITER = iterationsMax;
         this.colormap = colormap;

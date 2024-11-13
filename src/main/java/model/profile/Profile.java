@@ -1,3 +1,8 @@
+package model.profile;
+
+import model.fractal.Fractal;
+import util.FileUtils;
+
 import java.io.Serializable;
 import java.util.List;
 

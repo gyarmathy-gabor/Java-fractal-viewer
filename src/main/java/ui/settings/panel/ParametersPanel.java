@@ -1,6 +1,8 @@
+package ui.settings.panel;
+
 import javax.swing.*;
 
-public class ParametersPanel extends SettingPanel{
+public class ParametersPanel extends SettingPanel {
     private JTextField textFieldMaxIterations;
     private JTextField textFieldEscapeRadius;
 

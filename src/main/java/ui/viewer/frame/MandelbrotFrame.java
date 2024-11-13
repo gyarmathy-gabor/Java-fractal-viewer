@@ -1,5 +1,18 @@
+package ui.viewer.frame;
+
+import model.fractal.ComputingUnit;
+import model.fractal.Pixel;
+import model.profile.Profile;
+import ui.Scene;
+import ui.menu.MenuFrame;
+import ui.viewer.panel.CanvasPanel;
+import ui.viewer.panel.ViewerHeaderPanel;
+import util.FileUtils;
+import ui.menu.MenuFrame;
+
 import javax.swing.*;
 import java.util.List;
+
 
 public class MandelbrotFrame extends Scene {
     private ViewerHeaderPanel headerPanel;
@@ -12,7 +25,7 @@ public class MandelbrotFrame extends Scene {
         super(mainMenu);
 
         //Get choosen profile for computing unit
-        Profile choosenProfile =FileUtils.getChoosenProfile();
+        Profile choosenProfile = FileUtils.getChoosenProfile();
 
 
         //Logic

@@ -1,3 +1,5 @@
+package ui.settings.panel;
+
 import javax.swing.*;
 
 public class SettingPanel extends JPanel {
