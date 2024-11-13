@@ -28,7 +28,7 @@ public class ComputingUnit {
         this.profile = profile;
     }
 
-    public void calculateFractal(){  //hey
+    public void calculateFractal(){
 
         //borders of the plane we're looking at, and taking their distance
         double dX = Math.abs(maxX-minX);
@@ -126,7 +126,7 @@ public class ComputingUnit {
     public void moveUpwards(){
         double dY = Math.abs(maxY-minY);
         double d = dY * 0.1;
-        maxY -= d;  //Ez miért - miért nem + ? xd
+        maxY -= d;
         minY -= d;
         calculateFractal();
     }
@@ -134,7 +134,7 @@ public class ComputingUnit {
     public void moveDownwards(){
         double dY = Math.abs(maxY-minY);
         double d = dY * 0.1;
-        maxY += d;  //Ez miért + miért nem - ? xd
+        maxY += d;
         minY += d;
         calculateFractal();
     }
@@ -142,7 +142,7 @@ public class ComputingUnit {
     public void moveLeftwards(){
         double dX = Math.abs(maxX-minX);
         double d = dX * 0.1;
-        maxX -= d;  //Ez MEG MIÉRT HELYES AMÚGY
+        maxX -= d;
         minX -= d;
         calculateFractal();
     }
@@ -150,7 +150,7 @@ public class ComputingUnit {
     public void moveRightwards(){
         double dX = Math.abs(maxX-minX);
         double d = dX * 0.1;
-        maxX += d; //Ez MEG MIÉRT HELYES AMÚGY XDDDDDDD
+        maxX += d;
         minX += d;
         calculateFractal();
     }
@@ -192,4 +192,19 @@ public class ComputingUnit {
     }
 
 
+    public double getMinX() {
+        return minX;
+    }
+
+    public double getMaxX() {
+        return maxX;
+    }
+
+    public double getMinY() {
+        return minY;
+    }
+
+    public double getMaxY() {
+        return maxY;
+    }
 }

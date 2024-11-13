@@ -85,7 +85,7 @@ public class Profile implements Serializable {
     }
 
     public static Boolean isThereAnyProfileInUse(){
-        List<Profile> profiles = FileUtils.readProfiles(); //Folytasd innen
+        List<Profile> profiles = FileUtils.readProfiles();
         // Megnézni mindegyiket hogy van-e igaz, ha van akkor az első találatot használja
         for(Profile p : profiles){
             if(p.isProfileInUse){return true;}

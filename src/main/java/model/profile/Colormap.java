@@ -18,6 +18,14 @@ public class Colormap implements Serializable {
         }
     }
 
+    public Colormap(String name,List<Color> colorList){
+        this.name = name;
+        colors = new ArrayList<>();
+        for(Color i: colorList){
+            colors.add(i);
+        }
+    }
+
     public List<Color> getColors() {
         return colors;
     }
