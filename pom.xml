@@ -44,8 +44,14 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.5.2</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
-                    <useJUnitPlatform>true</useJUnitPlatform>
+                    <mainClass>Main</mainClass>
                 </configuration>
             </plugin>
         </plugins>
