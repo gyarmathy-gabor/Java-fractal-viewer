@@ -6,7 +6,7 @@
 3. [Installation](#installation)
 4. [How to Run](#how-to-run)
 5. [Running Tests](#running-tests)
-
+6. [UML](#uml)
 
 ## Project Description
 This is a fractal-viewer application in which you can view a few fractals like: mandelbrot, julia.
@@ -46,5 +46,8 @@ mvn exec:java
 mvn test
 ```
 
+## UML
+Here is the UML-diagram of the project:
+![uml.png](uml.png)
 
 

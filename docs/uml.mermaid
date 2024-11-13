@@ -3,26 +3,26 @@
 
 classDiagram
 
-    JFrame <|-- ui.menu.MenuFrame
-    JFrame <|-- ui.Scene
+    JFrame <|-- MenuFrame
+    JFrame <|-- Scene
 
-    class ui.menu.MenuFrame{
+    class MenuFrame{
       -JPanel buttonsPanel
       -JButton playButton
       -JButton settingsButton
       -JButton exitButton
       +ui.menu.MenuFrame()
     }
-    class ui.Scene{
+    class Scene{
       -ui.menu.MenuFrame mainMenu
       +ui.Scene(ui.menu.MenuFrame mainMenu)
       +dispose() void
     }
 
-    ui.Scene <|-- ui.viewer.frame.MandelbrotFrame
-    class ui.viewer.frame.MandelbrotFrame{
-      -ui.HeaderPanel headerPanel
-      -ui.viewer.panel.CanvasPanel canvasPanel
+    Scene <|-- MandelbrotFrame
+    class MandelbrotFrame{
+      -HeaderPanel headerPanel
+      -viewer.panel.CanvasPanel canvasPanel
       -model.fractal.ComputingUnit computer
 
       +ui.viewer.frame.MandelbrotFrame(ui.menu.MenuFrame mainMenu)

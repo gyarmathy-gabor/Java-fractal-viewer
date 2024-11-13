@@ -9,6 +9,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Represents the main menu frame of the application. This frame provides
+ * options to start a new fractal visualization (Play), adjust settings (Settings),
+ * or exit the application (Exit).
+ */
 public class MenuFrame extends JFrame {
    private JButton playButton;
    private JButton settingsButton;
@@ -16,6 +21,10 @@ public class MenuFrame extends JFrame {
    private JPanel buttonsPanel;
 
 
+    /**
+     * Constructs the main menu frame, setting up the window, layout, and buttons.
+     * Initializes the play, settings, and exit buttons and their associated actions.
+     */
     public MenuFrame(){
         setTitle("Main Menu");
         setSize(900,650);
@@ -49,7 +58,7 @@ public class MenuFrame extends JFrame {
         gbc.gridy = 2;
         buttonsPanel.add(exitButton,gbc);
 
-
+        //Action listener for Play button
         playButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -66,7 +75,7 @@ public class MenuFrame extends JFrame {
 
             }
         });
-
+        //Action listener for Settings button
         settingsButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
@@ -76,7 +85,7 @@ public class MenuFrame extends JFrame {
             }
         });
 
-
+        //Action listener for Exit button
         exitButton.addActionListener(new ActionListener(){
             @Override
             public void actionPerformed(ActionEvent e){
