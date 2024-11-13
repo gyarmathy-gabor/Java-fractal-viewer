@@ -6,7 +6,8 @@
 3. [Installation](#installation)
 4. [How to Run](#how-to-run)
 5. [Running Tests](#running-tests)
-6. [UML](#uml)
+6. [Generating Documentation](#generating-documentation)
+7. [UML](#uml)
 
 ## Project Description
 This is a fractal-viewer application in which you can view a few fractals like: mandelbrot, julia.
@@ -44,6 +45,17 @@ mvn exec:java
 ## Running tests
 ```bash
 mvn test
+```
+
+## Generating Documentation
+Project has javadoc plugin.
+You can generate javadoc with this command:
+```bash
+mvn javadoc:javadoc
+```
+After this it will be generated inside
+```bash
+target/reports/apidocs/index.html
 ```
 
 ## UML
