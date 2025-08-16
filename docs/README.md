@@ -2,12 +2,13 @@
 
 ## Table of Contents
 1. [Project Description](#project-description)
-2. [Technologies Used](#technologies-used)
-3. [Installation](#installation)
-4. [How to Run](#how-to-run)
-5. [Running Tests](#running-tests)
-6. [Generating Documentation](#generating-documentation)
-7. [UML](#uml)
+2. [Screenshots](#screenshots)
+3. [Technologies Used](#technologies-used)
+4. [Installation](#installation)
+5. [How to Run](#how-to-run)
+6. [Running Tests](#running-tests)
+7. [Generating Documentation](#generating-documentation)
+8. [UML](#uml)
 
 ## Project Description
 This is a fractal-viewer application in which you can view a few fractals like: mandelbrot, julia.
@@ -15,6 +16,12 @@ This is a fractal-viewer application in which you can view a few fractals like: 
 In the program you can customize attributes about the calculation of the fractal, and the rendering.
 
 After that you can move around in the viewer and zoom in and out of the fractal.
+
+## Screenshots
+Here are some examples of fractals generated with the viewer:
+
+![Mandelbrot example](img.png)
+![Julia example](img_1.png)
 
 ## Technologies Used
 - Java 22
@@ -57,9 +64,3 @@ After this it will be generated inside
 ```bash
 target/reports/apidocs/index.html
 ```
-
-## UML
-Here is the UML-diagram of the project:
-![uml.png](uml.png)
-
-
